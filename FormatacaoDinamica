@@ -1,0 +1,18 @@
+var __Valor = SELECTEDMEASURE()
+
+var __Dinheiro = "R$ "
+
+var __Formatacao = 
+SWITCH(
+    TRUE(),
+    __Valor > 1000000000, FORMAT(__Valor,  "#0,,,.00 Bi"),
+    __Valor > 1000000, FORMAT(__Valor, "#0,,.00 Mi"),
+    __Valor > 1000, FORMAT(__Valor, "#0,.00 K"),
+    FORMAT(__Valor, "#0")
+) 
+
+var __DinheiroBRL = """"& __Dinheiro & __Formatacao & """"
+
+var __UnitarioFormatado = """"&  __Formatacao & """"
+
+return __DinheiroBRL
